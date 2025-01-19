@@ -25,6 +25,7 @@
 			case 'konsole':
 			case 'terminal':
 			case 'terminator':
+			case 'tmux':
 			case 'warp':
 			case 'windows-terminal':
 				return 'terminal';
