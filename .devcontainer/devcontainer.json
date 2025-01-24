@@ -1,9 +1,14 @@
 {
   "name": "themer",
-  "build": {
-    "dockerfile": "./Dockerfile"
-  },
+  "build": { "dockerfile": "./Dockerfile" },
   "remoteUser": "node",
-  "extensions": ["esbenp.prettier-vscode"],
-  "postCreateCommand": "cd cli && yarn"
+  "customizations": {
+    "vscode": {
+      "extensions": ["esbenp.prettier-vscode", "svelte.svelte-vscode"]
+    }
+  },
+  "postCreateCommand": {
+    "install cli dependencies": "cd cli && npm install",
+    "install web dependencies": "cd web && npm install"
+  }
 }

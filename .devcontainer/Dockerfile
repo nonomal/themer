@@ -1,13 +1,5 @@
-FROM node:14
+FROM mcr.microsoft.com/devcontainers/javascript-node:20
 
-RUN apt-get update \
-  && apt-get install -y \
-    build-essential \
-    jq \
-    libcairo2-dev \
-    libgif-dev \
-    libjpeg-dev \
-    libpango1.0-dev \
-    librsvg2-dev \
-    zsh \
-  && rm -rf /var/lib/apt/lists/*
+RUN echo "Acquire::http::Pipeline-Depth 0;" > /etc/apt/apt.conf.d/99custom && \
+  echo "Acquire::http::No-Cache true;" >> /etc/apt/apt.conf.d/99custom && \
+  echo "Acquire::BrokenProxy true;" >> /etc/apt/apt.conf.d/99custom
